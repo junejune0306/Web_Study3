@@ -1,0 +1,136 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Number Baseball</title>
+		<style>
+			@font-face {
+				src : url("./GmarketSansTTFBold.ttf");
+				font-family: "G";
+			}
+			* {
+				font-family: "G";
+				color: red;
+			}
+			#numpad {
+				table-layout: fixed;
+				border-spacing: 0.2em 0.6em;
+			}
+			#numpad td {
+				height: 10%;
+				width: 33%;
+				text-align: center;
+				table-layout: fixed;
+			}
+			.num {
+				text-align: center;
+				display: inline-block;
+				width: 50%;
+				height: 50%;
+				font-size: 190%;
+				font-weight: 700;
+				border-radius: 30%;
+				border: 7px solid #EEEEEE;
+			}
+			.sbo {
+				height: 10%;
+				width: 33%;
+				text-align: center;
+				font-size: 250%;
+			}
+		</style>
+	<head>
+	<body>
+		<table border="1px" height="730px" align="center">
+			<tr>
+				<td width="220px">
+					<table id="numpad" border="0px" width="90%" height="100%" align="center">
+						<tr><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td></tr>
+						<tr><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td></tr>
+						<tr><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td></tr>
+						<tr><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td></tr>
+						<tr><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td></tr>
+						<tr><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td></tr>
+						<tr><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td></tr>
+						<tr><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td></tr>
+						<tr><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td></tr>
+						<tr><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td><td><div class="num">&nbsp;</div></td></tr>
+					</table>
+				</td>
+				<td width="200px">
+					<table id="sbopad" border="1px" width="90%" height="100%" align="center">
+						<tr>
+							<td class="sbo"></td><td class="sbo"></td><td class="sbo"></td>
+						</tr>
+						<tr>
+							<td class="sbo"></td><td class="sbo"></td><td class="sbo"></td>
+						</tr>
+						<tr>
+							<td class="sbo"></td><td class="sbo"></td><td class="sbo"></td>
+						</tr>
+						<tr>
+							<td class="sbo"></td><td class="sbo"></td><td class="sbo"></td>
+						</tr>
+						<tr>
+							<td class="sbo"></td><td class="sbo"></td><td class="sbo"></td>
+						</tr>
+						<tr>
+							<td class="sbo"></td><td class="sbo"></td><td class="sbo"></td>
+						</tr>
+						<tr>
+							<td class="sbo"></td><td class="sbo"></td><td class="sbo"></td>
+						</tr>
+						<tr>
+							<td class="sbo"></td><td class="sbo"></td><td class="sbo"></td>
+						</tr>
+						<tr>
+							<td class="sbo"></td><td class="sbo"></td><td class="sbo"></td>
+						</tr>
+						<tr>
+							<td class="sbo"></td><td class="sbo"></td><td class="sbo"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
+<script>
+	var count = 1, end = 0, anslist = "123201", pointer = 0;
+	var num = document.getElementsByClassName('num');
+	var sbo = document.getElementsByClassName('sbo');
+	
+	function insertNum(box) {
+		box.style.height = box.style.width = "65%";
+		box.style.fontSize = "260%"
+		box.style.border = "8px solid #BBBBBB";
+		box.style.color = "#333333";
+		box.innerHTML = ' ' + anslist.slice(pointer, ++pointer) + ' ';
+	}
+	function insertSbo(box) {
+		box.innerHTML = anslist.slice(pointer, ++pointer);
+	}
+	function paidIn(box) {
+		if (!box.style.width)
+			var tmp = 50;
+		else
+			var tmp = parseInt(box.style.width.slice(0,2));
+		box.style.height = box.style.width = (tmp + 1) + "%";
+		box.style.fontSize = parseInt(190 + (tmp - 49) * 4.67) + "%";
+		if (tmp == 54) box.style.border = "7px solid #DDDDDD";
+		if (tmp == 59) box.style.border = "7px solid #CCCCCC";
+		if (tmp == 64) box.style.border = "8px solid #BBBBBB";
+		console.log(box.style.width + box.style.fontSize + box.style.border);
+		if (tmp != 64) setTimeout(paidIn, 10, box);
+		return;
+	}
+	
+	for (var i = 0; i < count; i++) {
+		for (var j = 0; j < 3; j++) {
+			insertNum(num[j]);
+		}
+		for (var j = 0; j < 3; j++) {
+			insertSbo(sbo[j]);
+		}
+	}
+	for (var i = 0; i < 3; i++) setTimeout(paidIn, 0, num[count * 3 + i])
+</script>
