@@ -1,0 +1,70 @@
+* {
+	font-size: 20px;
+}
+#div {
+	display: inline-block;
+	overflow-y: scroll;
+	height: 500px;
+	border: 5px solid #000;
+	border-radius: 10px;
+}
+#div::-webkit-scrollbar {
+	display: none;
+}
+table {
+	border-collapse: collapse;
+	width: 600px;
+}
+td:nth-child(odd) {
+	text-align: right;
+	width: 60px;
+	padding: 8px;
+	font-weight: bold;
+}
+td:nth-child(even) {
+	text-align: left;
+	padding: 8px;
+}
+tr:nth-child(odd) {
+	background-color: #f2f2f2;
+}
+input[type=text] {
+	width: 425px;
+	border: 0px;
+	border-bottom: 2px solid #000;
+}
+input[type=text]:focus {
+	outline: 0;
+	border-bottom: 4px solid #000;
+}
+#input {
+	display: inline-block;
+}
+#resetbutton {
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	background-color: #000000;
+	border: 4px solid #000000;
+	color: white;
+	padding: 14px 20px;
+	cursor: pointer;
+	height: 60px;
+}
+#resetbutton:focus {
+	border: 4px solid #999999;
+}
+#resetbutton:hover {
+	background-color: #555555;
+	border: 4px solid #555555;
+}
+#resetbutton:active {
+	background-color: #000000;
+	border: 4px solid #FFFFFF;
+	font-size: 17px;
+}
+span {
+	font-size: 25px;
+	color: red;
+	font-weight: bold;
+}
