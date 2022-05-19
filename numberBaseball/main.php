@@ -29,7 +29,6 @@
 		for ($i = 0; $i < 3 - $s - $b; $i++)
 			$_SESSION['ad'][] = 'o';
 	}
-	print_r($_SESSION['answer']);
 ?>
 <html>
 	<head>
@@ -45,7 +44,7 @@
 		<div id='alert'><?php
 			echo ($s == 3) ? 'YOU WIN!' : 'GAME OVER';
 		?><span><br><?php
-			echo ($s == 3) ? 'attemps : '.$s : ($c == 10) ? 'answer : '.$_SESSION['answer'][0].$_SESSION['answer'][1].$_SESSION['answer'][2] : '';
+			echo ($s == 3) ? 'attemps : '.$c : (($c == 10) ? 'answer : '.$_SESSION['answer'][0].$_SESSION['answer'][1].$_SESSION['answer'][2] : '');
 		?></span></div>
 		<div id='title'>Number Baseball</div>
 		<div id='nums'><?php $np = 0; $ap = 0;
@@ -115,7 +114,7 @@
 	function end(tmp) {
 		document.getElementById('alert').style.color = 'rgba(255, 255, 255, ' + tmp + ')';
 		document.getElementById('alert').childNodes[1].style.color = 'rgba(255, 255, 255, ' + tmp + ')';
-		document.getElementById('alert').style.backgroundColor = 'rgba(155, 155, 155, ' + (tmp / 3) + ')';
+		document.getElementById('alert').style.backgroundColor = 'rgba(155, 155, 155, ' + (tmp / 2) + ')';
 		document.getElementById('alert').style.top = (-420 - tmp * 50) + 'px';
 		if (tmp < 1) setTimeout(end, 10, tmp + 0.03);
 	}
