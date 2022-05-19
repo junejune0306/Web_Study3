@@ -6,6 +6,7 @@
 	color: #fff;
 	overflow-x: hidden;
 	overflow-y: hidden;
+	z-index: 1;
 }
 body {
 	background-color: #111;
@@ -61,4 +62,22 @@ body {
 .o {
 	background-color: #f53916;
 	border: 2px solid #f53916 !important;
+}
+#alert {
+	font-family: "cir";
+	margin: 50% 50%;
+	position: absolute;
+	top: -420px;
+	left: -170px;
+	width: 300px;
+	background-color: rgba(155, 155, 155, 0);
+	color: rgba(255, 255, 255, 0);
+	padding: 20px;
+	border-radius: 5px;
+	font-size: 50px;
+	z-index: 2;
+}
+#alert span {
+	font-size: 20px;
+	color: rgba(255, 255, 255, 0);
 }
